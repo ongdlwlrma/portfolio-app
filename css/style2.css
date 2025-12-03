@@ -1,0 +1,329 @@
+/* --- 1. การตั้งค่าพื้นฐาน (Reset & Global) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* ทำให้การเลื่อนหน้าเว็บนุ่มนวล */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- 2. Utility Classes --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* ปุ่มต่างๆ */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px; /* ปุ่มมน */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* --- 3. Header & Navbar --- */
+.header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; /* ตรึงเมนูไว้ด้านบน */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 70px; /* กำหนดความสูงแน่นอน */
+    display: flex;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3498db;
+}
+
+.navbar .nav-link {
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: #3498db;
+}
+
+/* --- 4. Main Layout for Full Screen Sections --- */
+section {
+    min-height: 100vh; /* ความสูงขั้นต่ำเท่ากับหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* จัดเนื้อหาให้อยู่กึ่งกลางแนวตั้ง */
+    padding-top: 70px; /* เว้นที่ว่างด้านบนไม่ให้ทับกับ Header */
+    position: relative;
+}
+
+/* --- 5. Hero Section (Home) --- */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* ระยะห่างระหว่างรูปกับข้อความ */
+}
+
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; /* รูปวงกลม */
+    border: 5px solid #fff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text h3 {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* --- 6. Portfolio Section --- */
+.portfolio-section {
+    background-color: #fff;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    padding-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px); /* ลอยขึ้นเมื่อเอาเมาส์ชี้ */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.portfolio-item h4 {
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+
+.portfolio-item p {
+    color: #777;
+    font-size: 0.9rem;
+    padding: 0 10px;
+}
+
+/* --- 7. About Section --- */
+.about-section {
+    background-color: #f0f4f8; /* สีพื้นหลังอ่อนๆ เพื่อแยกส่วน */
+}
+
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-left, .about-right {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.skills-list p {
+    background: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-weight: 500;
+}
+
+/* --- 8. Contact Section --- */
+.contact-section {
+    background-color: #fff;
+}
+
+.contact-content {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-left {
+    flex: 2;
+}
+
+.contact-right {
+    flex: 1;
+    background: #3498db;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-right p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* --- 9. Footer --- */
+.footer {
+    background: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    /* Footer ไม่ต้องเต็มจอ ให้ต่อท้าย Contact */
+}
+
+.social-icon {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- 10. Responsive (มือถือ) --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    
+    .navbar {
+        margin-top: 10px;
+    }
+
+    .hero-content, .about-content, .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 10px;
+        display: block;
+    }
+
+    .hidden-on-mobile {
+        display: none; /* ซ่อนบางอย่างในมือถือถ้าต้องการ */
+    }
+    
+    .contact-right {
+        margin-top: 20px;
+    }
+}
