@@ -29,6 +29,15 @@
           <img src="../img/profile.jpg" alt="Ong Profile Picture" />
         </div>
         <div class="hero-text">
+          <h2 class="reveal">Thanakorn Prasanram</h2>
+          <h3>I'm a <span id="typewriter" class="typing-text"></span></h3>
+
+          <div class="hero-buttons reveal">
+            <a href="#portfolio" class="btn btn-primary">VIEW MY PROJECTS</a>
+            <a href="#" class="btn btn-secondary">DOWNLOAD CV</a>
+          </div>
+        </div>
+        <!-- <div class="hero-text">
           <h2>Thanakorn Prasanram</h2>
           <h3>Programmer</h3>
           <p></p>
@@ -36,7 +45,7 @@
             <a href="#portfolio" class="btn btn-primary">VIEW MY PROJECTS</a>
             <a href="#" class="btn btn-secondary">DOWNLOAD CV</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -44,23 +53,55 @@
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <img src="../img/project.png" alt="E-commerce Redesign" />
-            <h4>Training Project</h4>
-            <p>ระบบจัดการโครงการฝึกอบรม</p>
-            <p>Website</p>
-          </div>
-          <div class="portfolio-item">
+          <a href="https://github.com/ongdlwlrma/portfolio-app">
+            <div class="portfolio-item reveal">
+              <img src="../img/project.png" alt="E-commerce Redesign" />
+              <h4>Training Project</h4>
+              <p>ระบบจัดการโครงการฝึกอบรม</p>
+              <p>Website</p>
+            </div>
+          </a>
+          <div class="portfolio-item reveal">
             <img src="../img/iu.jpg" alt="Mobile App Concept" />
             <h4>Mobile App Concept</h4>
             <p>UX/UI Design</p>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item reveal">
             <img src="../img/iu.jpg" alt="Creative Agency Website" />
             <h4>Creative Agency Website</h4>
             <p>Web Design</p>
           </div>
-          <div class="portfolio-item">
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
+            <img src="../img/iu.jpg" alt="More Project Idea" />
+            <h4>More Project Idea</h4>
+            <p>UI/UX Design</p>
+          </div>
+          <div class="portfolio-item reveal">
             <img src="../img/iu.jpg" alt="More Project Idea" />
             <h4>More Project Idea</h4>
             <p>UI/UX Design</p>
@@ -71,7 +112,7 @@
 
     <section id="about" class="about-section">
       <div class="container about-content">
-        <div class="about-left">
+        <div class="about-left reveal">
           <h2 class="section-title">ABOUT ME</h2>
           <div class="about-image">
             <img src="../img/profile.jpg" alt="Ong Profile Picture" />
@@ -84,7 +125,7 @@
             <p class="about-text">dlwlrma</p>
           </div>
         </div>
-        <div class="about-right">
+        <div class="about-right reveal">
           <h2 class="section-title hidden-on-mobile">SKILLS</h2>
           <div class="skills-list">
             <p>&#x2022; Figma</p>
@@ -101,7 +142,7 @@
       <div class="container contact-content">
         <div class="contact-left">
           <h2 class="section-title">GET IN TOUCH</h2>
-          <form class="contact-form">
+          <form class="contact-form reveal">
             <input type="text" placeholder="Name" class="form-control" />
             <input type="email" placeholder="Email" class="form-control" />
             <textarea
@@ -128,5 +169,110 @@
         <a href="#" class="social-icon">gh</a>
       </div>
     </footer>
+
+    <script>
+      // --------------------------------------------------
+      // 1. Navbar Effect: เปลี่ยนสีเมนูเมื่อเลื่อนลง
+      // --------------------------------------------------
+      const header = document.querySelector(".header");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // --------------------------------------------------
+      // 2. Typewriter Effect: เอฟเฟกต์พิมพ์ตัวอักษร
+      // --------------------------------------------------
+      const textElement = document.getElementById("typewriter");
+      const words = ["Programmer", "Web Developer", "UI/UX Designer"]; // คำที่จะให้พิมพ์สลับกัน
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+          // ลบตัวอักษร
+          textElement.textContent = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          // พิมพ์ตัวอักษร
+          textElement.textContent = currentWord.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        // ความเร็วในการพิมพ์ (พิมพ์เร็ว / ลบเร็ว)
+        let typeSpeed = isDeleting ? 100 : 200;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+          // พิมพ์ครบคำแล้ว ให้รอแป๊บนึงก่อนลบ
+          typeSpeed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          // ลบหมดแล้ว ให้เปลี่ยนคำถัดไป
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          typeSpeed = 500;
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+      }
+
+      // เริ่มทำงานเมื่อโหลดหน้าเว็บ
+      document.addEventListener("DOMContentLoaded", typeEffect);
+
+      // --------------------------------------------------
+      // 3. Scroll Reveal: เอฟเฟกต์ของลอยขึ้นมาเมื่อเลื่อนถึง
+      // --------------------------------------------------
+      const revealElements = document.querySelectorAll(".reveal");
+
+      function checkReveal() {
+        const triggerBottom = window.innerHeight * 0.85; // จุดที่จะให้เริ่มแสดง (85% ของจอ)
+
+        revealElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+
+          if (elementTop < triggerBottom) {
+            element.classList.add("active");
+          } else {
+            // ถ้าอยากให้เลื่อนกลับไปแล้วหาย ให้เปิดบรรทัดล่างนี้
+            // element.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener("scroll", checkReveal);
+      // เรียกใช้ครั้งแรกเผื่อมี element ที่โชว์อยู่แล้วตอนโหลด
+      checkReveal();
+
+      // --------------------------------------------------
+      // 4. Smooth Scroll for Navigation Links (แถม)
+      // --------------------------------------------------
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // --------------------------------------------------
+      // 5. Contact Form Alert (แถม)
+      // --------------------------------------------------
+      const form = document.querySelector(".contact-form");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // ป้องกันการรีเฟรชหน้า
+          alert("ขอบคุณที่ติดต่อมาครับ! ผมจะรีบตอบกลับให้เร็วที่สุด");
+          form.reset(); // ล้างค่าในฟอร์ม
+        });
+      }
+    </script>
   </body>
 </html>
